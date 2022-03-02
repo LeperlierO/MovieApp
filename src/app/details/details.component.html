@@ -1,0 +1,33 @@
+<div id="center" class="main center">
+
+    <div class="container" *ngIf="movie">
+
+      <!-- Début partie spécifique home page -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <img class="details-img" [src]="movie.poster_path" />
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <h2>{{ movie.original_title }}</h2>
+          <h3>{{ movie.tagline }}</h3>
+          <p class="meta-wrap">
+            <span class="rating">rating: {{ movie.vote_average }} </span>
+            <span class="meta">{{ movie.spoken_languages[0].name }} / {{ movie.runtime }} min. / {{ movie.release_date }}</span>
+          </p>
+
+          <ul class="genres">
+            <li *ngFor="let genre of movie.genres;">{{ genre.name }}</li>
+          </ul>
+
+          <ul>
+            <li *ngFor="let comment of movie.comments;">{{ comment.text }}</li>
+          </ul>
+
+          <input type="text" />
+          <button (click)="addComment()" type="button" >Commenter</button>
+
+      </div>
+      <!-- Fin partie spécifique home page -->
+
+    </div>
+</div>
