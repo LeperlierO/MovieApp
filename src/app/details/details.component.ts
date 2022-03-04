@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie } from '../models/movie';
 import { MovieService } from '../services/movie.service';
-import { Comment, CommentResponse } from '../models/comment';
+import { Comment } from '../models/comment';
 
 @Component({
   selector: 'app-details',
@@ -12,6 +12,7 @@ import { Comment, CommentResponse } from '../models/comment';
 export class DetailsComponent implements OnInit {
 
   movie?:Movie;
+  displayedColumns: string[] = ['id', 'text', 'date'];
 
   constructor(private route: ActivatedRoute, private router: Router, private movieService: MovieService) { }
 
