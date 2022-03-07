@@ -6,6 +6,7 @@ import { Comment, CommentResponse } from '../models/comment';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { MatTableDataSource } from '@angular/material/table';
+import { Sort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-details',
@@ -21,6 +22,7 @@ export class DetailsComponent implements OnInit {
   error = '';
 
   movie?:Movie;
+  sortedComments?: CommentResponse[];
 
   // Column table comments
   displayedColumns: string[] = ['id', 'text', 'rating', 'date'];
@@ -41,6 +43,7 @@ export class DetailsComponent implements OnInit {
         next: (movie) => {
           this.movie = movie;
           this.movie.comments.map(c => this.dataSource?.data.push(c));
+          this.sortedComments = this.movie.comments.slice();
         },
         error: (error) => {
           console.log(error);
@@ -54,6 +57,31 @@ export class DetailsComponent implements OnInit {
     }
 
     return '';
+  }
+
+  sortComments(sort: Sort) {
+    let data = this.movie?.comments.slice();
+
+    if(data != undefined){
+      this.dataSource.data = data.sort((a, b) => {
+        const isAsc = sort.direction === 'asc';
+        switch (sort.active) {
+          case 'rating':
+            return this.compare(a.rating, b.rating, isAsc);
+          case 'date' :
+            return this.compare(a.date, b.date, isAsc);
+          default:
+            return 0;
+        }
+      });
+    }
+
+  }
+
+  compare(a: number | string | Date, b: number | string | Date, isAsc: boolean) {
+    console.log("a : " + a + " et b : " + b);
+    console.log((a < b ? -1 : 1) * (isAsc ? 1 : -1));
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 
   onSubmit(){

@@ -7,6 +7,6 @@ export class CommentResponse{
     id!: number;
     movieId!: number;
     text!: string;
-    rating!: string;
+    rating!: number;
     date!: Date;
 }

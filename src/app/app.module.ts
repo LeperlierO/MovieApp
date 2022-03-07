@@ -21,8 +21,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { MatSortModule } from '@angular/material/sort';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
@@ -48,7 +53,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatChipsModule,
-    NgxStarRatingModule
+    NgxStarRatingModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
