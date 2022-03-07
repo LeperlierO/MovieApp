@@ -22,6 +22,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { MatSortModule } from '@angular/material/sort';
+import { MatRippleModule } from '@angular/material/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -54,7 +55,8 @@ registerLocaleData(localeFr, 'fr');
     BrowserAnimationsModule,
     MatChipsModule,
     NgxStarRatingModule,
-    MatSortModule
+    MatSortModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
