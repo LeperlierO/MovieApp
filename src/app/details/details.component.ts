@@ -65,6 +65,7 @@ export class DetailsComponent implements OnInit {
         next: (response) => {
           this.dataSource.data.push(response);
           this.dataSource.data = this.dataSource.data;
+          this.commentForm.reset();
           console.log(this.movie);
         },
         error: (error) => {
