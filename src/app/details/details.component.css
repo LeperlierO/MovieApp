@@ -9,3 +9,24 @@ table {
   .mat-cell {
     padding: 8px 8px 8px 0;
   }
+
+.card{
+  padding: 30px;
+  width: 100%;
+}
+
+  .card-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .card-submit{
+    display: block !important;
+    margin-top: 10px !important;
+  }
+
+.mat-form-field {
+  width: 100% !important;
+}
+  

@@ -45,6 +45,7 @@
   }
   
   .genres {
+    margin-bottom: 20px;
     padding-left: 0;
     display: flex;
   }
@@ -72,6 +73,7 @@ body {
     font-family: 'Varela Round', sans-serif;
 }
 .header {
+    z-index: 10;
     display: block;
     margin: 0 auto;
     width: 100%;
