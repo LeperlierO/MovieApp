@@ -11,7 +11,9 @@ import { MovieService } from '../services/movie.service';
 })
 export class AlbumComponent implements OnInit {
 
+  search : string ="";
   movies: Movie[] = [];
+  filteredMovies: Movie[] = [];
   error = '';
 
   constructor(private route: ActivatedRoute, private movieService: MovieService, private router: Router) { 
@@ -32,6 +34,7 @@ export class AlbumComponent implements OnInit {
       .subscribe({
         next: (movies) => {
           this.movies = movies;
+          this.filteredMovies = movies;
         },
         error: (error) => {
           this.error = error;
@@ -42,6 +45,7 @@ export class AlbumComponent implements OnInit {
       .subscribe({
         next: (movies) => {
           this.movies = movies;
+          this.filteredMovies = movies;
         },
         error: (error) => {
           this.error = error;
@@ -51,13 +55,8 @@ export class AlbumComponent implements OnInit {
     
   }
 
-  getGenreNumber(genre: string | null): number{
-    switch(genre){
-      case "Action":
-        return 28;
-      default:
-        return 0;
-    }
+  searchChanged(){
+    this.filteredMovies = this.movies.filter(m => m.original_title.toUpperCase().includes(this.search.toUpperCase()));
   }
 
 }

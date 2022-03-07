@@ -2,12 +2,24 @@
 
     <div class="container">
 
-      <!-- Début partie spécifique home page -->
+      <form>
+        <mat-form-field>
+          <span matPrefix></span>
+          <input type="text" matInput placeholder="Search" name= "search" [(ngModel)]= "search" (ngModelChange)="searchChanged()">
+          <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+        </mat-form-field>
+        <br/>
+      </form>
+
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of movies; index as idx" style="margin-bottom: 10px;">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of filteredMovies; index as idx" style="margin-bottom: 10px;">
           <app-card [movie]="movie"></app-card>
         </div>
       </div>
-      <!-- Fin partie spécifique home page -->
+
+      <div >
+
+      </div>
 
     </div>
+<div>

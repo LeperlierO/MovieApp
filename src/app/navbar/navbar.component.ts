@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit {
 
   selectGenre(genre: Genre){
     this.selected = genre.id;
-    this.router.navigate(['/movies/'+genre.name])
+    this.router.navigate(['/movies/'+genre.name.toLocaleLowerCase()])
   }
 
 }
