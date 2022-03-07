@@ -7,6 +7,6 @@
 <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
     <li *ngFor="let genre of genres;"><a (click)="selectGenre(genre)" [ngClass]="{'selected': genre.id === selected}" 
-        matRipple [matRippleRadius]="20" [matRippleCentered]="true">{{ genre.name }}</a></li>
+        matRipple [matRippleRadius]="20">{{ genre.name }}</a></li>
     </ul>
 </div>
