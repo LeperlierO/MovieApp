@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatFormFieldModule } from '@angular/material/form-field'; 
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -46,7 +47,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatChipsModule
+    MatChipsModule,
+    NgxStarRatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div id="center" class="main center">
 
     <div class="container" *ngIf="movie">
@@ -25,6 +27,7 @@
               <mat-card-subtitle>Or look at all the reviews already posted in the table below</mat-card-subtitle>
               <mat-card-content>
                 <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+                    <ngx-star-rating formControlName="rating" [formControl]="rating" required></ngx-star-rating>
                     <mat-form-field appearance="fill">
                         <mat-label for="comment">Comment</mat-label>
                         <textarea matInput placeholder="" [formControl]="comment" formControlName="comment" required></textarea>
@@ -49,10 +52,16 @@
             <td mat-cell *matCellDef="let comment"> {{comment.id}} </td>
           </ng-container>
         
-          <!-- Name Column -->
+          <!-- Text Column -->
           <ng-container matColumnDef="text">
             <th mat-header-cell *matHeaderCellDef> Text </th>
             <td mat-cell *matCellDef="let comment"> {{comment.text}} </td>
+          </ng-container>
+
+          <!-- Rating Column -->
+          <ng-container matColumnDef="rating">
+            <th mat-header-cell *matHeaderCellDef> Rating </th>
+            <td mat-cell *matCellDef="let comment"> {{comment.rating}}/10 </td>
           </ng-container>
 
           <!-- Date Column -->

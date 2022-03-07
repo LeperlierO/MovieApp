@@ -16,18 +16,20 @@ export class DetailsComponent implements OnInit {
 
   // For
   commentForm: FormGroup = new FormGroup({});
-  comment = new FormControl('', [Validators.required, Validators.email]);
+  comment = new FormControl('', [Validators.required]);
+  rating = new FormControl('', [Validators.required]);
   error = '';
 
   movie?:Movie;
 
   // Column table comments
-  displayedColumns: string[] = ['id', 'text', 'date'];
+  displayedColumns: string[] = ['id', 'text', 'rating', 'date'];
   dataSource: MatTableDataSource<CommentResponse> = new MatTableDataSource<CommentResponse>([]);
 
   constructor(private route: ActivatedRoute, private router: Router, private movieService: MovieService) { 
     this.commentForm = new FormGroup({
       comment: this.comment,
+      rating: this.rating
     });
   }
 
@@ -55,9 +57,9 @@ export class DetailsComponent implements OnInit {
   }
 
   onSubmit(){
-    const { comment } = this.commentForm.value;
+    const { comment, rating } = this.commentForm.value;
     let newComment: Comment = new Comment();
-    newComment.rating = 10;
+    newComment.rating = rating*2;
     newComment.text = comment;
 
     if(this.movie!=undefined){
@@ -66,7 +68,6 @@ export class DetailsComponent implements OnInit {
           this.dataSource.data.push(response);
           this.dataSource.data = this.dataSource.data;
           this.commentForm.reset();
-          console.log(this.movie);
         },
         error: (error) => {
           console.log(error);
