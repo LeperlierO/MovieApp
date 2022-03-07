@@ -1,0 +1,8 @@
+.selected{
+    background-color: #649cdb;
+    color : #f5f5f5;
+    font-weight: 650;
+    padding: 10px;
+    border-radius: 3%;
+    border-radius: 10px;
+}

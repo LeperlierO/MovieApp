@@ -6,12 +6,6 @@
 </label>
 <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
-    <li><a routerLink="genres/Action">Action</a></li>
-    <li><a routerLink="genres/Adventure">Adventure</a></li>
-    <li><a routerLink="genres/Animation">Animation</a></li>
-    <li><a routerLink="genres/Comedy">Comedy</a></li>
-    <li><a routerLink="genres/Crime">Crime</a></li>
-    <li><a routerLink="genres/Documentary">Documentary</a></li>
-    <li><a routerLink="genres/Drama">Drama</a></li>
+    <li *ngFor="let genre of genres;"><a (click)="selectGenre(genre)" [ngClass]="{'selected': genre.id === selected}">{{ genre.name }}</a></li>
     </ul>
 </div>
